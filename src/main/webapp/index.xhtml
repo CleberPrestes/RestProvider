@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+ 
+     <h:head>
+        <title>Cadastro de clientes</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        
+        
+         <div class="jumbotron mt-5 row d-flex justify-content-center">
+             <h1>Cadastro de Clientes</h1>         
+         </div>
+        <div class="row d-flex justify-content-center">
+             Insira o ID, NOME e CODIGO DA CIDADE para cadastrar        
+         </div>
+                <br/>
+        <h:form>
+            <div class="row d-flex justify-content-center">
+                
+                <p>Id: <h:inputText value="#{jsfCliente.id}" />
+                
+           
+           
+            Nome: <h:inputText value="#{jsfCliente.nome}"/> 
+          
+           
+            Codigo da Cidade: <h:inputText value="#{jsfCliente.idCidade}"/> 
+            </p>
+           </div>
+            <br></br>
+            <div class="row d-flex justify-content-center">
+           <h:commandButton action="#{jsfCliente.add()}" value="ADICIONAR" class="btn btn-warning mr-3 row d-flex justify-content-center"/>
+           
+           <h:commandButton action="#{jsfCliente.edit()}" value="EDITAR" class="btn btn-warning mr-3 row d-flex justify-content-center"/>
+
+           <h:commandButton action="#{jsfCliente.del}" value="DELETE" class="btn btn-warning mr-3 row d-flex justify-content-center"/>
+                
+           <h:commandButton action="#{jsfCliente.buscaClienteEscolhido()}" value="BUSCAR CLIENTE" class="btn btn-warning mr-3 row d-flex justify-content-center"/>
+
+            </div>
+         </h:form>
+        <br/> 
+     
+        <h:form>
+            
+            <div class="row d-flex justify-content-center">
+                    <h2 class=" justify-content-center">Clientes Cadastrados</h2>
+            </div>
+            
+            
+            <h:dataTable value="#{jsfCliente.all}" var="cliente" class="row d-flex justify-content-center">
+                <h:column>
+                   Id: <h:outputText value="#{cliente.id}" class="text-danger justify-content-center"/>
+                </h:column>
+            
+                <h:column>
+               Nome: <h:outputText value="#{cliente.nome}" class="text-warning justify-content-center"/>
+                </h:column>
+              
+                 <h:column>
+                Cidade: <h:outputText value="#{cliente.cidade}" class="text-danger justify-content-center"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>    
+        
+         <div class="row d-flex justify-content-center">
+                    <h2 class=" justify-content-center">Cidades disponiveis</h2>
+            </div>
+          <h:form class="row d-flex justify-content-center">
+              
+        <h:selectOneMenu>
+                 <f:selectItems value="#{jsFCidade.all}" />
+        </h:selectOneMenu>
+      </h:form>
+        
+         <div class="row d-flex justify-content-center">
+            
+             <p>Aluno: Cleber dos Santos Prestes</p>         
+         </div>
+        
+          
+    </h:body>
+
+    
+</html>
+
